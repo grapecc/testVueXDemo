@@ -209,15 +209,38 @@ store.js
 ```
 // 1. 从vuex中按需导入mapActions 函数
 import {mapActions } from 'vuex'
+
+methods: {
+...mapActions(['subAsync', 'subAsyncN'])
+}
+
+
+//组件调用
+this.subAsyncN(step)
 ```
 
+Vuex的核心概念 Getter
 
+Getter 用于对Store中数据进行加工处理形成新的数据。
 
+ 1.Getter可以对Store 中已有的数据加工处理之后形成新的数据，类似于Vue的计算属性。
 
+2.Store 中数据发生变化，Getter的数据可会跟着变化
 
-
-
-
+```
+ state: {
+    count: 0
+  },
+  getters: {
+    showNum: state => {
+      return '当前最新的数量是【'+state.count+'】'
+    }
+  },
+  
+  
+  //组件使用第一种方式
+  $store.getters.showNum
+```
 
 
 
