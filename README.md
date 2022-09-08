@@ -239,7 +239,14 @@ Getter 用于对Store中数据进行加工处理形成新的数据。
   
   
   //组件使用第一种方式
-  $store.getters.showNum
+  $store.getters.showNum 
+  //第二种使用方式
+  import {mapGetters } from 'vuex'
+  
+  computed: {
+    //count 第二种方法
+    ...mapGetters(['showNum'])
+  }
 ```
 
 
